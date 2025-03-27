@@ -318,3 +318,94 @@ document.querySelectorAll('.polaroid').forEach(item => {
         }, 500);
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  var merrywrap = document.getElementById("merrywrap");
+  var box = merrywrap.getElementsByClassName("giftbox")[0];
+  var polaroids = document.querySelectorAll(".polaroid");
+  var step = 1;
+  var stepMinutes = [2000, 2000, 1000, 1000];
+  
+  // Ensure page scrolling
+  document.body.style.overflowY = "auto";
+
+  // Hide polaroids initially
+  polaroids.forEach(item => item.style.display = "none");
+  
+  function init() {
+      box.addEventListener("click", openBox, false);
+  }
+  
+  function stepClass(step) {
+      merrywrap.className = "merrywrap step-" + step;
+  }
+  
+  function openBox() {
+      if (step === 1) {
+          box.removeEventListener("click", openBox, false);
+      }
+      stepClass(step);
+      
+      if (step === 4) {
+          reveal();
+          return;
+      }
+      
+      setTimeout(openBox, stepMinutes[step - 1]);
+      step++;
+  }
+  
+  init();
+});
+
+function reveal() {
+  document.querySelector(".merrywrap").style.backgroundColor = "transparent";
+  
+  // Show polaroids after the gift opens
+  setTimeout(() => {
+      document.querySelectorAll(".polaroid").forEach(item => {
+          item.style.display = "block";
+          item.style.opacity = "1";
+          item.style.transition = "opacity 1s ease-in-out";
+      });
+  }, 500);
+  
+  loop();
+  
+  var ifrm = document.createElement("iframe");
+  ifrm.setAttribute("src", "https://www.youtube.com/embed/gbICivOO26U?controls=0&loop=1&autoplay=1");
+  ifrm.style.border = "none";
+  document.querySelector("#video").appendChild(ifrm);
+}
+
+// Make polaroid container scrollable
+var polaroidContainer = document.querySelector("#polaroid-container");
+if (polaroidContainer) {
+  polaroidContainer.style.overflowY = "auto";
+  polaroidContainer.style.maxHeight = "80vh"; // Limit height to 80% of the viewport
+}
+
+// Zoom effect on polaroid click
+document.querySelectorAll(".polaroid").forEach(item => {
+  item.addEventListener("click", () => {
+      item.classList.toggle("zoomed");
+  });
+});
+
+// Optional: Add a zoomed-in effect
+document.querySelectorAll(".polaroid").forEach(item => {
+  item.addEventListener("dblclick", () => {
+      item.style.transform = "scale(1.3) rotate(0deg)";
+      setTimeout(() => {
+          item.style.transform = "rotate(0deg)";
+      }, 500);
+  });
+});
+
+window.addEventListener("scroll", function () {
+  let text = document.getElementById("icons");
+  if (window.scrollY > 200) { // Adjust threshold as needed
+      text.style.opacity = "0";
+  } else {
+      text.style.opacity = "1";
+  }
+});
