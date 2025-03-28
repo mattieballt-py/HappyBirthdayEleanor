@@ -499,3 +499,11 @@ div#video iframe {
 .polaroid.zoomed {
   transform: scale(1.3) rotate(0deg) !important;
 }
+
+.polaroid {
+  transition: transform 0.3s ease-in-out;
+}
+
+.polaroid:hover {
+  transform: scale(1.2) rotate(5deg);
+}
