@@ -20,10 +20,10 @@ window.requestAnimFrame = function () {
   // starting hue
   hue = 120,
   // when launching fireworks with a click, too many get launched at once without a limiter, one launch per 5 loop ticks
-  limiterTotal = 5,
+  limiterTotal = 10,
   limiterTick = 0,
-  // this will time the auto launches of fireworks, one launch per 100 loop ticks
-  timerTotal = 100,
+  // this will time the auto launches of fireworks, one launch per 80 loop ticks
+  timerTotal = 120,
   timerTick = 0,
   mousedown = false,
   // mouse x coordinate,
@@ -71,8 +71,8 @@ window.requestAnimFrame = function () {
       this.coordinates.push([this.x, this.y]);
     }
     this.angle = Math.atan2(ty - sy, tx - sx);
-    this.speed = 2;
-    this.acceleration = 1.05;
+    this.speed = 0.5;
+    this.acceleration = 1.01;
     this.brightness = random(50, 70);
     // circle target indicator radius
     this.targetRadius = 1;
@@ -140,11 +140,11 @@ window.requestAnimFrame = function () {
     }
     // set a random angle in all possible directions, in radians
     this.angle = random(0, Math.PI * 2);
-    this.speed = random(1, 10);
+    this.speed = random(0.2, 3);
     // friction will slow the particle down
     this.friction = 0.95;
     // gravity will be applied and pull the particle down
-    this.gravity = 1;
+    this.gravity = 0.8;
     // set the hue to a random number +-20 of the overall hue variable
     this.hue = random(hue - 20, hue + 20);
     this.brightness = random(50, 80);
@@ -308,13 +308,3 @@ window.requestAnimFrame = function () {
     });
 });
 
-// Existing hover effects for polaroids
-document.querySelectorAll('.polaroid').forEach(item => {
-    item.addEventListener('mouseover', () => {
-        item.style.transform = "scale(1.2) rotate(5deg)"; // Scale and rotate on hover
-    });
-
-    item.addEventListener('mouseout', () => {
-        item.style.transform = "scale(1) rotate(0deg)"; // Reset on mouse out
-    });
-});
