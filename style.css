@@ -141,7 +141,7 @@ div#video iframe {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(204, 110, 255);
+  background-color: rgb(254, 218, 202);
   transition: background-color .3s ease;
 }
 
@@ -162,7 +162,7 @@ div#video iframe {
 }
 
 .giftbox > div {
-  background: #fb68dd;
+  background: #3f82ff;
   position: absolute;
 }
 
