@@ -22,8 +22,8 @@ window.requestAnimFrame = function () {
   // when launching fireworks with a click, too many get launched at once without a limiter, one launch per 5 loop ticks
   limiterTotal = 5,
   limiterTick = 0,
-  // this will time the auto launches of fireworks, one launch per 80 loop ticks
-  timerTotal = 80,
+  // this will time the auto launches of fireworks, one launch per 100 loop ticks
+  timerTotal = 100,
   timerTick = 0,
   mousedown = false,
   // mouse x coordinate,
@@ -300,21 +300,21 @@ window.requestAnimFrame = function () {
     document.querySelector('#video').appendChild(ifrm);
   }
   
-  document.querySelector(".gift-box").addEventListener("click", () => {
+  document.querySelector(".giftbox").addEventListener("click", () => {
     // Show the polaroids when the gift box is clicked
     document.querySelectorAll(".polaroid").forEach(item => {
         item.style.display = "block"; // Reveal the polaroids
+        item.style.transform = "scale(1) rotate(0deg)"; // Reset transform on reveal
     });
-  });
+});
 
-  document.querySelectorAll(".polaroid").forEach(item => {
-    item.style.display = "none"; // Hide the polaroids initially
-    item.addEventListener("mouseover", () => {
+// Existing hover effects for polaroids
+document.querySelectorAll('.polaroid').forEach(item => {
+    item.addEventListener('mouseover', () => {
         item.style.transform = "scale(1.2) rotate(5deg)"; // Scale and rotate on hover
-        item.style.transition = "transform 0.3s ease-in-out"; // Smooth transition
     });
 
-    item.addEventListener("mouseout", () => {
+    item.addEventListener('mouseout', () => {
         item.style.transform = "scale(1) rotate(0deg)"; // Reset on mouse out
     });
 });

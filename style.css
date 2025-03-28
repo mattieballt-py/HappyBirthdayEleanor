@@ -50,8 +50,13 @@ h1 {
     transform: rotate(5deg);
 }
 
+.polaroid {
+    display: none; 
+    transition: transform 0.3s ease-in-out; 
+}
+
 .polaroid:hover {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.2) rotate(5deg); 
 }
 
 .polaroid img {
@@ -203,12 +208,22 @@ div#video iframe {
 
 /* icons are happy birthday eleanor in corner */
 .icons {
-  position: fixed;
-  left: 10%;
-  top: 5%;
-  transform: translateY(10px) rotate(-20deg);
-  transition: opacity 0.5s ease-in-out;
+  position: relative; /* Ensure it is positioned relative to the parent */
+  text-align: center; /* Center the text */
+  margin-top: 20px; /* Add some space above */
 }
+
+.icons .row {
+  display: inline-block; /* Align rows horizontally */
+  margin: 5px; /* Space between rows */
+}
+
+.icons span {
+  font-size: 24px; /* Adjust font size */
+  color: white; /* Change text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a shadow for better visibility */
+}
+
 .icon-text {
     position: fixed; 
     top: 20px; 
@@ -501,7 +516,7 @@ div#video iframe {
 }
 
 .polaroid:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.2) rotate(5deg);
 }
 
 .polaroid.zoomed {
@@ -509,6 +524,7 @@ div#video iframe {
 }
 
 .polaroid {
+  display: block; 
   transition: transform 0.3s ease-in-out;
 }
 
