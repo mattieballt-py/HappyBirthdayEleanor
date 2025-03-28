@@ -41,8 +41,9 @@ h1 {
     padding: 10px;
     text-align: center;
     transform: rotate(-4deg);
-    transition: transform 0.2s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     cursor: pointer;
+    display: none; 
 }
 
 .polaroid:nth-child(even) {
@@ -50,7 +51,7 @@ h1 {
 }
 
 .polaroid:hover {
-    transform: scale(1.1) rotate(0deg);
+    transform: scale(1.2) rotate(5deg);
 }
 
 .polaroid img {
@@ -207,6 +208,13 @@ div#video iframe {
   top: 5%;
   transform: translateY(10px) rotate(-20deg);
   transition: opacity 0.5s ease-in-out;
+}
+.icon-text {
+    position: fixed; 
+    top: 20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    z-index: 10; 
 }
 .icons .row {
   width: 100%;

@@ -1,4 +1,3 @@
-
 window.requestAnimFrame = function () {
     return window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -301,25 +300,21 @@ window.requestAnimFrame = function () {
     document.querySelector('#video').appendChild(ifrm);
   }
   
-  document.querySelectorAll(".polaroid").forEach(item => {
-    item.addEventListener("click", () => {
-        item.classList.toggle("zoomed");
+  document.querySelector(".gift-box").addEventListener("click", () => {
+    // Show the polaroids when the gift box is clicked
+    document.querySelectorAll(".polaroid").forEach(item => {
+        item.style.display = "block"; // Reveal the polaroids
     });
+  });
 
+  document.querySelectorAll(".polaroid").forEach(item => {
+    item.style.display = "none"; // Hide the polaroids initially
     item.addEventListener("mouseover", () => {
-        item.style.transform = "scale(1.2) rotate(5deg)";
-        item.style.transition = "transform 0.3s ease-in-out";
+        item.style.transform = "scale(1.2) rotate(5deg)"; // Scale and rotate on hover
+        item.style.transition = "transform 0.3s ease-in-out"; // Smooth transition
     });
 
     item.addEventListener("mouseout", () => {
-        item.style.transform = "scale(1) rotate(0deg)";
-    });
-
-    item.addEventListener("dblclick", () => {
-        item.style.transform = "scale(1.3) rotate(0deg)";
-        setTimeout(() => {
-            item.style.transform = "rotate(5deg)";
-        }, 500);
+        item.style.transform = "scale(1) rotate(0deg)"; // Reset on mouse out
     });
 });
-
