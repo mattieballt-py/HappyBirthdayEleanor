@@ -304,7 +304,7 @@ window.requestAnimFrame = function () {
     // Show the polaroids when the gift box is clicked
     document.querySelectorAll(".polaroid").forEach(item => {
         item.style.display = "block"; // Reveal the polaroids
+        item.style.transform = "scale(1) rotate(0deg)"; // Reset transform on reveal
     });
-  });
-
+});
 

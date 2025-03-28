@@ -86,6 +86,7 @@ p:first-of-type {
   font-style: arial;
 }
 
+
 .polaroid:nth-child(even) {
     transform: rotate(1.2deg);
 }
@@ -358,10 +359,4 @@ div#video iframe {
   .moon {
     right: 3vw; /* Adjusted for larger screens */
   }
-}
-
-/* Polaroid hover effect fix */
-.polaroid {
-  transition: transform 0.3s ease-out;
-  transform-style: preserve-3d;
 }
