@@ -1,4 +1,3 @@
-
 window.requestAnimFrame = function () {
     return window.requestAnimationFrame ||
     window.webkitRequestAnimationFrame ||
@@ -299,6 +298,13 @@ window.requestAnimFrame = function () {
     //ifrm.style.height = `${h}px`;
     ifrm.style.border = 'none';
     document.querySelector('#video').appendChild(ifrm);
+  
+    document.querySelector(".giftbox").addEventListener("click", () => {
+      // Show the polaroids when the gift box is clicked
+      document.querySelectorAll(".polaroid").forEach(item => {
+        item.style.display = "block"; // or use item.classList.remove("hidden");
+      });
+    });
   }
   
   
